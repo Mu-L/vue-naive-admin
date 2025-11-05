@@ -10,45 +10,34 @@
 import { useAuthStore } from '@/store'
 
 let isConfirming = false
+
+function handleAuthExpired(content, needTip) {
+  if (isConfirming || !needTip)
+    return
+  isConfirming = true
+  $dialog.confirm({
+    title: '提示',
+    type: 'info',
+    content,
+    confirm() {
+      useAuthStore().logout()
+      window.$message?.success('已退出登录')
+      isConfirming = false
+    },
+    cancel() {
+      isConfirming = false
+    },
+  })
+  return false
+}
+
 export function resolveResError(code, message, needTip = true) {
   switch (code) {
     case 401:
-      if (isConfirming || !needTip)
-        return
-      isConfirming = true
-      $dialog.confirm({
-        title: '提示',
-        type: 'info',
-        content: '登录已过期，是否重新登录？',
-        confirm() {
-          useAuthStore().logout()
-          window.$message?.success('已退出登录')
-          isConfirming = false
-        },
-        cancel() {
-          isConfirming = false
-        },
-      })
-      return false
+      return handleAuthExpired('登录已过期，是否重新登录？', needTip)
     case 11007:
     case 11008:
-      if (isConfirming || !needTip)
-        return
-      isConfirming = true
-      $dialog.confirm({
-        title: '提示',
-        type: 'info',
-        content: `${message}，是否重新登录？`,
-        confirm() {
-          useAuthStore().logout()
-          window.$message?.success('已退出登录')
-          isConfirming = false
-        },
-        cancel() {
-          isConfirming = false
-        },
-      })
-      return false
+      return handleAuthExpired(`${message}，是否重新登录？`, needTip)
     case 403:
       message = '请求被拒绝'
       break
