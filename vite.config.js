@@ -69,6 +69,9 @@ export default defineConfig(({ mode }) => {
         },
       },
     },
+    optimizeDeps: {
+      include: ['vue3-intro-step'],
+    },
     build: {
       chunkSizeWarningLimit: 1024, // chunk 大小警告的限制（单位kb）
     },
