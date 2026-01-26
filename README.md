@@ -79,6 +79,10 @@ Vue Naive Admin 提供一套后端代码，技术栈使用 Nestjs + TypeOrm + My
 npx degit zclzone/vue-naive-admin
 ```
 
+## 鸣谢
+
+本项目开发测试及运行环境由 [野草云](https://my.yecaoyun.com/aff.php?aff=3162) 提供支持。
+
 ## 版权说明
 
 本项目使用 `MIT协议`，默认授权给任何人，被授权人可免费地无限制的使用、复制、修改、合并、发布、发行、再许可、售卖本软件拷贝、并有权向被供应人授予同等的权利，但必须满足以下条件:
