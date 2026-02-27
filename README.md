@@ -14,7 +14,7 @@
 <a href="https://hellogithub.com/repository/54f19ba1f9ae4238b3cbd111f3c428b0" target="_blank"><img src="https://abroad.hellogithub.com/v1/widgets/recommend.svg?rid=54f19ba1f9ae4238b3cbd111f3c428b0&claim_uid=jXGayRdJZScqMNr" alt="Featured｜HelloGitHub" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 
 > [!Tip]
-> 我们提供Web（PC+H5+小程序）的技术支持服务及定制开发，不限前后端，详细需求可联系作者，微信: isme-admin，邮箱: zclzone@outlook.com
+> 我们提供Web（PC+H5+小程序）的技术支持服务及定制开发，不限前后端，详细需求可联系作者，微信: isme-admin，邮箱: admin@isme.top
 
 ## 简介
 
