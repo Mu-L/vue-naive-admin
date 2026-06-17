@@ -21,6 +21,8 @@ export const DEFAULT_SETTINGS = {
 
 export const EXPERIENCE_KEY_MAX_TEXT_LENGTH = 100
 
+const RUNAPI_PROXY_BASE_URL = '/runapi'
+
 const TRANSLATION_RULES = 'Translate directly. Return only the translation. Preserve formatting, markdown, code, URLs, numbers, placeholders, and line breaks.'
 
 export function isSettingsReady(target) {
@@ -80,10 +82,17 @@ function createFastModelOptions(model) {
   }
 }
 
+function createRequestBaseUrl(apiBaseUrl) {
+  const baseUrl = apiBaseUrl.trim().replace(/\/+$/, '')
+  if (baseUrl === API_BASE_URL_OPTIONS[0])
+    return RUNAPI_PROXY_BASE_URL
+  return baseUrl
+}
+
 export async function translateText(text, settings) {
   validateTranslateText(text, settings)
 
-  const baseUrl = settings.apiBaseUrl.trim().replace(/\/+$/, '')
+  const baseUrl = createRequestBaseUrl(settings.apiBaseUrl)
   const model = settings.model.trim() || DEFAULT_SETTINGS.model
   const sourceLanguage = detectSourceLanguage(text)
 
