@@ -20,6 +20,7 @@ const resultText = ref('')
 const errorText = ref('')
 const loading = ref(false)
 const showSettings = ref(false)
+const runApiUrl = 'https://runapi.co/register?aff=Da0v'
 
 const settings = useStorage(STORE_KEY, { ...DEFAULT_SETTINGS })
 const draftSettings = reactive({ ...settings.value })
@@ -138,6 +139,18 @@ async function handleCopy() {
         </div>
 
         <div class="flex items-center gap-10">
+          <a
+            v-if="isUsingExperienceKey"
+            class="runapi-badge"
+            :href="runApiUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="打开 RunAPI"
+          >
+            <i class="i-fe:zap" />
+            <span>默认体验模型由中转站平台 RunAPI 提供支持</span>
+            <i class="i-fe:external-link" />
+          </a>
           <n-button quaternary circle title="模型配置" @click="openSettings">
             <template #icon>
               <i class="i-fe:settings" />
@@ -226,6 +239,14 @@ async function handleCopy() {
           <n-alert v-if="isDraftExperienceKey" type="warning" :show-icon="false">
             当前是体验 Key，所有人每天共享使用约 1000 次翻译，单次最多支持 {{ EXPERIENCE_KEY_MAX_TEXT_LENGTH }} 字符。
           </n-alert>
+
+          <a class="runapi-card" :href="runApiUrl" target="_blank" rel="noopener noreferrer">
+            <span class="min-w-0 flex-1">
+              <strong>默认体验模型由中转站平台 RunAPI 提供支持</strong>
+              <span>点击获取稳定、快速且实惠的模型 API 服务</span>
+            </span>
+            <i class="i-fe:external-link" />
+          </a>
 
           <div>
             <div class="mb-8 text-13 text-#5f6665">
@@ -319,6 +340,69 @@ async function handleCopy() {
   color: rgb(var(--primary-color));
   background: rgba(var(--primary-color), 0.09);
   font-size: 20px;
+}
+
+.runapi-badge {
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border: 1px solid rgba(var(--primary-color), 0.22);
+  border-radius: 8px;
+  color: rgb(var(--primary-color));
+  background: rgba(var(--primary-color), 0.08);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.runapi-badge:hover {
+  border-color: rgba(var(--primary-color), 0.38);
+  background: rgba(var(--primary-color), 0.13);
+}
+
+.runapi-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid rgba(var(--primary-color), 0.18);
+  border-radius: 8px;
+  color: #1f2322;
+  background: linear-gradient(135deg, rgba(var(--primary-color), 0.1), rgba(255, 255, 255, 0.9));
+  text-decoration: none;
+}
+
+.runapi-card strong,
+.runapi-card span span {
+  display: block;
+}
+
+.runapi-card strong {
+  color: rgb(var(--primary-color));
+  font-size: 14px;
+}
+
+.runapi-card span span {
+  margin-top: 4px;
+  color: #7a807f;
+  font-size: 12px;
+}
+
+.runapi-card-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  flex: none;
+  border-radius: 8px;
+  color: rgb(var(--primary-color));
+  background: rgba(var(--primary-color), 0.12);
 }
 
 .translate-workspace {
@@ -430,6 +514,10 @@ async function handleCopy() {
 
   .translate-workspace {
     grid-template-columns: 1fr;
+  }
+
+  .runapi-badge {
+    white-space: normal;
   }
 }
 </style>
