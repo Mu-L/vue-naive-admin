@@ -17,7 +17,7 @@
 > 我们提供Web（PC+H5+小程序）的技术支持服务及定制开发，不限前后端，详细需求可联系作者，微信: isme-admin，邮箱: admin@isme.top
 
 > [!Tip]
-> 项目内置 AI 翻译功能，体验模型由 [RunAPI](https://runapi.co/register?aff=Da0v) 提供支持。如需稳定、快速、实惠的中转模型 API 服务，可前往注册使用，RunAPI 为本项目的用户提供了特别福利，通过此链接注册并联系客服可领取 ¥14 免费额度。
+> 项目内置 AI 翻译功能，模型由 [RunAPI](https://runapi.co/register?aff=Da0v) 提供支持。如需稳定、快速、实惠的中转模型 API 服务，可前往注册使用，通过此链接注册自动获赠$0.1体验额度，GPT-5.5模型可对话2-3次，欢迎体验。
 
 ## 简介
 
